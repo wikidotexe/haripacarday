@@ -11,11 +11,7 @@ const DODGE_TEXTS = [
   'Nyerah aja',
 ];
 
-type FinalCTAProps = {
-  partnerName: string;
-};
-
-export default function FinalCTA({ partnerName }: FinalCTAProps) {
+export default function FinalCTA() {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const [dodges, setDodges] = useState(0);
   const [accepted, setAccepted] = useState(false);
@@ -93,7 +89,7 @@ export default function FinalCTA({ partnerName }: FinalCTAProps) {
             <div className="anim-pop relative">
               <div className="text-6xl">💞</div>
               <h2 className="mt-5 font-display text-[clamp(1.9rem,5vw,3.2rem)] font-black leading-tight text-white">
-                Yeay! Makasih ya, {partnerName.split(' ')[0]}
+                Yeay! Maacii sayangg akuhh 💖
               </h2>
               <p className="mx-auto mt-5 max-w-lg text-sm leading-relaxed text-white/90">
                 Janji ini bukan cuma buat hari ini. Aku bakal terus pilih kamu — di hari yang

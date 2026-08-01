@@ -37,7 +37,7 @@ export default function Home({ partnerName, onChangeName }: HomeProps) {
           </div>
         </div>
       </section>
-      <FinalCTA partnerName={partnerName} />
+      <FinalCTA />
     </>
   );
 }
