@@ -55,10 +55,10 @@ export const REASONS: Reason[] = [
   },
   {
     id: 'r4',
-    emoji: '☕',
+    emoji: '🍤',
     title: 'Perhatian di Detail Kecil',
     teaser: 'Kamu ingat hal-hal yang bahkan aku sendiri lupa.',
-    body: 'Kamu ingat aku alergi apa, aku benci kopi yang kemanisan, aku selalu murung tiap Minggu malam. Perhatian sekecil itu yang bikin aku merasa benar-benar diperhatikan, bukan sekadar ditemani.',
+    body: 'Kamu ingat aku alergi apa, aku nggak suka udang, aku selalu murung tiap Minggu malam. Perhatian sekecil itu yang bikin aku merasa benar-benar diperhatikan, bukan sekadar ditemani.',
   },
   {
     id: 'r5',
