@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --rose: #ff3d8b;
+  --rose-deep: #c2185b;
+  --grape: #8b5cf6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: #3b1f2e;
+  background-color: #fdf2f6;
+  background-image:
+    radial-gradient(60rem 40rem at 12% -8%, rgba(255, 138, 191, 0.35), transparent 60%),
+    radial-gradient(52rem 36rem at 92% 4%, rgba(167, 139, 250, 0.28), transparent 62%),
+    radial-gradient(46rem 34rem at 78% 88%, rgba(255, 176, 122, 0.22), transparent 60%);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* Butiran/noise halus supaya latar tidak terasa datar */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.28'/%3E%3C/svg%3E");
+  mix-blend-mode: multiply;
+}
+
+::selection {
+  background: rgba(255, 61, 139, 0.25);
+}
+
+@layer components {
+  .shell {
+    @apply mx-auto w-full max-w-[1120px] px-5 sm:px-8;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-extrabold uppercase tracking-[0.28em] text-rose-500;
+  }
+
+  .card-soft {
+    @apply rounded-4xl border border-rose-100 bg-white/85 shadow-soft backdrop-blur-sm;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-rose-500 via-rose-600 to-grape-500
+    px-7 py-3.5 text-sm font-extrabold text-white shadow-glow transition-all duration-300
+    hover:-translate-y-0.5 hover:shadow-lift focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-500;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-rose-200 bg-white/80
+    px-6 py-3 text-sm font-bold text-rose-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-rose-400 hover:bg-white;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-rose-500 via-rose-600 to-grape-500 bg-clip-text text-transparent;
+  }
+}
+
+/* ==== Animasi ==== */
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: var(--peak, 0.7); }
+  90% { opacity: var(--peak, 0.7); }
+  100% { transform: translateY(-110vh) rotate(var(--spin, 25deg)); opacity: 0; }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.22); }
+  30% { transform: scale(0.96); }
+  45% { transform: scale(1.14); }
+  60% { transform: scale(1); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-120%) skewX(-18deg); }
+  100% { transform: translateX(220%) skewX(-18deg); }
+}
+
+@keyframes bobble {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes popIn {
+  0% { transform: scale(0.9) translateY(12px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes burst {
+  0% { transform: translate(0, 0) scale(0.4); opacity: 1; }
+  100% { transform: translate(var(--dx), var(--dy)) scale(1.4); opacity: 0; }
+}
+
+.anim-heartbeat { animation: heartbeat 1.4s ease-in-out infinite; }
+.anim-bobble { animation: bobble 4s ease-in-out infinite; }
+.anim-pop { animation: popIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.anim-marquee { animation: marquee 26s linear infinite; }
+.anim-shimmer { animation: shimmer 3.6s ease-in-out infinite; }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.75s cubic-bezier(0.22, 1, 0.36, 1), transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+}

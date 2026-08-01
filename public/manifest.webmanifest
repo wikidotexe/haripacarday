@@ -1,0 +1,61 @@
+{
+  "name": "Hari Pacar Sedunia — Untuk Kamu, Selamanya",
+  "short_name": "Untuk Kamu",
+  "description": "Website interaktif untuk Hari Pacar Sedunia: countdown, alasan sayang, kuis romantis, galeri momen, dan surat digital.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FDF2F6",
+  "theme_color": "#FF3D8B",
+  "lang": "id",
+  "dir": "ltr",
+  "categories": ["lifestyle", "entertainment"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Alasan Aku Sayang",
+      "short_name": "Alasan",
+      "url": "/alasan",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Kuis Romantis",
+      "short_name": "Kuis",
+      "url": "/kuis",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Galeri Momen",
+      "short_name": "Momen",
+      "url": "/momen",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    },
+    {
+      "name": "Surat Untuk Kamu",
+      "short_name": "Surat",
+      "url": "/surat",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }]
+    }
+  ]
+}
